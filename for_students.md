@@ -73,3 +73,5 @@ for (i in list_filenames){
   rm(temp_file)
 }
 ```
+All this work wouldn't be necessary if Just used the SELECT AS statement in SQL in the first place :)
+to be continued 
