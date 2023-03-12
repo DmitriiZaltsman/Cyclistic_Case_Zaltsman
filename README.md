@@ -3,6 +3,10 @@
 For the past few months I took a Data Analytics course to make a career change. By the end of the course one should complete a case study to showcase the acquired skillset.
 It took a while to develop the efficient approach and I want to cover the challenges I encountered while completing the project as well.
 
+for_students file is for the career-changers like myself. I want to highlight the struggles and initial misconceptions I encountered to show that it's okay to make mistakes and learn from them.
+
+IN-DEPTH file goes as mentioned in depth with my thought process. I explain the limitations of data, credibility and how I approach the data, what queries I use and what insights I gather from those queries with suggestions for marketing team.
+
 I chose the case study with the following scenario. 
 
 You are a junior data analyst working in the marketing analyst team at Cyclistic, a bike-share company in Chicago. The director
