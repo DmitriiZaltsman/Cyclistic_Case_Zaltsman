@@ -214,3 +214,34 @@ As for annual members the results are differ drastically: workdays - 2497442 rid
   ### Key Insight (workdays/weekends)
   Casual riders are much more likely to use Cyclistic's bikes on weekends while annual members are active all week. Should develop a strategy to raise the activity of casual riders so they would see the potential in using the service during the workdays as well.
 
+## Bike preference
+One more query you can run to see whether there is a preference towards a partucular bike type you can run the following query: 
+```
+SELECT 
+  total_member_trips,
+  total_casual_trips
+  total_member_electric_trips,
+  total_casual_electric_trips,
+  total_member_classic_trips,
+  total_casual_classic_trips,
+  ROUND(total_member_electric_trips/total_member_trips,2)*100 AS member_electric_percentage,
+  ROUND(total_casual_electric_trips/total_casual_trips,2)*100 AS casual_electric_percentage,
+  ROUND(total_member_classic_trips/total_member_trips,2)*100 AS member_classic_percentage,
+  ROUND(total_casual_classic_trips/total_casual_trips,2)*100 AS casual_classic_percentage
+FROM 
+  (
+  SELECT
+  COUNTIF(member_casual = 'member') AS total_member_trips,
+  COUNTIF(member_casual= 'casual') AS total_casual_trips,
+  COUNTIF(rideable_type = 'electric_bike' AND member_casual = 'member') AS total_member_electric_trips,
+  COUNTIF(rideable_type = 'electric_bike' AND member_casual = 'casual') AS total_casual_electric_trips,
+  COUNTIF(rideable_type = 'classic_bike' AND member_casual = 'member') AS total_member_classic_trips,
+  COUNTIF(rideable_type = 'classic_bike' AND member_casual = 'casual') AS total_casual_classic_trips
+  FROM
+  `cyclists-case-study-378616.trip_data.clear_year_trip_data`
+  WHERE member_casual NOT IN ('docked_bike')
+  )
+  ```
+  Having no access to the initial number of bikes total and their accessibility makes it difficult however to gain any valuable insight on this topic.
+  ### key insight (rideable_type)
+  Should investigate in the future whether the rideable type makes a difference in customer's decision making. Requires an additional data on the number of bikes in total and their accessibility 
